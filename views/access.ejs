@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+  <body class="d-flex h-100 text-center text-bg-dark">    
+<div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Lumos.ai</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link fw-bold py-1 px-0" href="/">Home</a>
+        <a class="nav-link fw-bold py-1 px-0" href="/create">Create Worksheet</a>
+        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/access">Answer Worksheet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="w-100 py-3">
+    <h1>Answer Worksheet</h1>
+    <div style="background-color: #16191c;border-radius: 15px;" class="p-3"><p class="lead">First enter the worksheet ID to access it.</p>
+    <form action="/access" method="post">
+      <div class="mb-3">
+        <label for="wsid" class="form-label"><b>Worksheet ID</b></label>
+        <input type="text" class="form-control" id="wsid" name="wsid" aria-describedby="wsTopic" required>
+        <div id="emailHelp" class="form-text">This ID was assigned to you while you were creating the worksheet.</div>
+      </div></div>
+      <p class="lead">
+        <button class="btn btn-lg btn-light fw-bold border-white bg-white" type="submit">Access Worksheet</button>
+      </p>
+    </form>
+  </main>
+<%- include('partials/footer') %>
