@@ -15,7 +15,8 @@
   <main class="w-100 py-3">
     <h1>Create a new worksheet</h1>
     <p class="lead">Question-answers are limited to two since the free ChatGPT API is being used which has limited credit. Worksheets are not saved in databases, only in variables of this server instance. The total score is 6 (3 + 3).</p>
-    <p class=""lead><b>Worksheet ID is <%- id %>.</b> This will be required later to access the worksheet.</p>
+    <h4 class="btn btn-lg btn-light fw-bold border-white bg-white">Worksheet ID is <%- id %></h4> 
+    <p class="lead">This will be required later to access the worksheet.</p>
     <form action="/create" method="post"><div class="p-3" style="background-color: #16191c;border-radius: 15px;">
       <div class="mb-3">
         <label for="topic" class="form-label"><b>Topic</b></label>
