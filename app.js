@@ -69,7 +69,7 @@ app.post('/answer', function(req,res){
           "prompt": prompt,
           "max_tokens": 1000,
           "n": 1,
-          "temperature": 0.5
+          "temperature": 0.3
         });
         let answer = JSON.parse(completion.data.choices[0].text)
         res.render('result',{ package:package,scores:answer })
