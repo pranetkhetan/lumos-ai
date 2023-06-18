@@ -23,21 +23,31 @@ app.get('/access', function(req,res){
     res.render('access')
 });
 app.get('/create', function(req,res){
-    res.render('create',{ id: wsid+1 })
+    let id = wsid + 1
+    let emptyplaceholder = {
+        id:id,
+        title: "",
+        q1: "",
+        q2: "",
+        akey1: "",
+        akey2: ""
+    }
+    worksheets.push(emptyplaceholder)
+    wsid += 1
+    res.render('create',{ id:id })
 });
 app.post('/create', function(req,res){
-    const worksheet = {
-        id: wsid + 1,
+    let id = req.body.wsid
+    let worksheet = {
+        id: req.body.wsid,
         title: req.body.topic,
         q1: req.body.question1,
         q2: req.body.question2,
         akey1: req.body.answer1,
         akey2: req.body.answer2
     }
-    worksheets.push(worksheet)
-    console.log(worksheets)
+    worksheets[id-1] = worksheet
     res.render('message',{ messageTitle: "Your worksheet has been created",messageBody: "It has been saved in a variable on this instance of the server. You can now use the 'Answer Worksheet' option in the navbar to answer the worksheet and check your score!" })
-    wsid += 1
 });
 app.post('/access', function(req,res){
     let resp = req.body.wsid
