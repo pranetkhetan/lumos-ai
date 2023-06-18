@@ -23,6 +23,7 @@ app.get('/access', function(req,res){
     res.render('access')
 });
 app.get('/create', function(req,res){
+    console.log(req.socket.remoteAddress)
     let id = wsid + 1
     let emptyplaceholder = {
         id:id,
