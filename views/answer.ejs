@@ -16,10 +16,11 @@
     <h1><%- worksheet.title %></h1>
     <p class="lead">Each question carries 3 marks. All the best! </p>
     <p class=""lead><b>Worksheet ID is <%- id %>.</b></p>
-    <div style="background-color: #16191c;border-radius: 15px;" class="p-3"><form action="/ocr" method="post" enctype="multipart/form-data"><input type="file" id="file" name="file" class="form-control">
+    <div style="background-color: #16191c;border-radius: 15px;" class="p-3"><form action="/ocr" method="post" enctype="multipart/form-data">
+      <input type="file" id="file" name="file" class="form-control" accept=".jpg,.png,.jpeg">
       <p class="lead"></p>
       <p class="lead">
-        <button class="btn btn-lg btn-light fw-bold border-white bg-white" type="submit">Submit Image for OCR</button>
+        <button class="btn btn-lg btn-light fw-bold border-white bg-white" type="submit">Submit as Text</button>
       </p>
       <div style="display:none">
         <input type="text" class="form-control" id="id" name="id" value="<%- id %>">

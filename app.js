@@ -89,29 +89,34 @@ app.post('/ocr',upload.single('file'), function(req,res){
         try{    
             request.post(options, function(err, httpResponse, body) {
                 let output = JSON.parse(body)
-                let prediction = output.result[0].prediction[0].ocr_text
-                let firstline = 'You will get an input in the form of a paragraph of text, that is the output of an OCR algorithm. Can you use your understanding of language and text to correct it? After correcting it, you will find that the text is divided into two parts - Answer 1 and Answer 2. You need to separate these. The ONLY format you can reply is - {"answer1":"<the text for answer 1>", "answer2":"<the text for answer 2>"} The text is - '
-                let prompt = firstline + prediction
-                async function runCompletion () {
-                    const completion = await openai.createCompletion({
-                    "model": "text-davinci-003",
-                    "prompt": prompt,
-                    "max_tokens": 1000,
-                    "n": 1,
-                    "temperature": 0.4
-                    });
-                    try {    
-                        let answer = JSON.parse(completion.data.choices[0].text)
-                        ocranswers = answer
-                        let id = req.body.id
-                        let worksheet = worksheets[id - 1]
-                        res.render('ocredit',{ worksheet:worksheet, id:id, ocr:ocranswers })
-                    } catch(err) {
-                        console.log(err)
-                        res.render('message',{ messageTitle:"Error uploading your answers", messageBody:"This usually happens very rarely. Please try again." })
+                try {
+                    let prediction = output.result[0].prediction[0].ocr_text
+                    let firstline = 'You will get an input in the form of a paragraph of text, that is the output of an OCR algorithm. Can you use your understanding of language and text to correct it? After correcting it, you will find that the text is divided into two parts - Answer 1 and Answer 2. You need to separate these. The ONLY format you can reply is - {"answer1":"<the text for answer 1>", "answer2":"<the text for answer 2>"} The text is - '
+                    let prompt = firstline + prediction
+                    async function runCompletion () {
+                        const completion = await openai.createCompletion({
+                        "model": "text-davinci-003",
+                        "prompt": prompt,
+                        "max_tokens": 1000,
+                        "n": 1,
+                        "temperature": 0.4
+                        });
+                        try {    
+                            let answer = JSON.parse(completion.data.choices[0].text)
+                            ocranswers = answer
+                            let id = req.body.id
+                            let worksheet = worksheets[id - 1]
+                            res.render('ocredit',{ worksheet:worksheet, id:id, ocr:ocranswers })
+                        } catch(err) {
+                            console.log(err)
+                            res.render('message',{ messageTitle:"Error uploading your answers", messageBody:"This usually happens very rarely. Please try again." })
+                        }
                     }
+                    runCompletion();
+                } catch(err) {
+                    console.log(err)
+                    res.render('message',{ messageTitle:"Error uploading your answers", messageBody:"Are you sure it was the right file type?" })
                 }
-                runCompletion();
             }); 
         } catch(err){
             console.log(err)
