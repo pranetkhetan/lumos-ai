@@ -1,0 +1,10 @@
+# Lumos.ai
+Submission for YUVAI-Phase 2 by Pranet Khetan
+
+<h4>Prompt used for OCR - </h4> 
+You will get an input in the form of a paragraph of text, that is the output of an OCR algorithm. Can you use your understanding of language and text to correct it? After correcting it, you will find that the text is divided into two parts - Answer 1 and Answer 2. You need to separate these. The ONLY format you can reply is - {"answer1":"<the text for answer 1>", "answer2":"<the text for answer 2>"} The text is - <br>
+(prediction outputted by OCR algorithm goes here)
+
+<h4>Prompt used for checking answers - </h4>
+Read this prompt in detail and be prepared to answer all questions: You will be provided with three values: a question, an answer, and an answer key in the format { question1: <question goes here>, answer1: <answer goes here>, answerkey1: <answer key goes here>, question2:<question goes here>, answer2: <answer goes here>, answerkey2: <answer key goes here> }. You have to compare the answer to the answer key and give it a score out of three along with detailed feedback. A few pointers to keep in mind: 1) The answers are long answers and don\'t necessarily have to be word-to-word similar. They can be paraphrased or written in a different way but MUST CONTAIN ALL IMPORTANT KEYWORDS in the answer key, 2) Also compare the amount of DETAIL in the answer. You CANNOT give it a perfect score if it is missing any important detail or keyword. TO REACH A PERFECT SCORE, THE ANSWER MUST CONTAIN ALL KEYWORDS AND PROCESSES. A ONE-LINER WILL ONLY GET 1 MARK, 3) You are allowed to give DECIMAL scores, 4) Be very STRICT with your correction. If the answer is NOT SATISFACTORY, give a 1. The ONLY format you can use to reply is - {"score1":"<your score for answer 1>","feedback1":"<your feedback for answer 1>","score2":"<your score for answer 2>","feedback2":"<your feedback for answer 2>"}. DO NOT FORGET TO APPLY COMMON SENSE The answers you have to grade are: - <br>
+(question, answer and answer key go here)
