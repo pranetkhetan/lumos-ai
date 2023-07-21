@@ -1,7 +1,7 @@
 # Lumos.ai
 Submission for YUVAI-Phase 2 by Pranet Khetan
 
-<h1>LIVE DEMO</h1>
+<h2>LIVE DEMO</h2>
 <a href="https://www.bit.ly/lumosai">bit.ly/lumosai</a><br>
 This will take at least 30-40 seconds to load since it is using free hosting from a server in Oregon, USA.
 
