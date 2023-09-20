@@ -1,5 +1,4 @@
 # Lumos.ai
-Submission for YUVAI-Phase 2 by Pranet Khetan
 
 <h2>LIVE DEMO</h2>
 <a href="https://www.bit.ly/lumosai">bit.ly/lumosai</a><br>
@@ -34,8 +33,8 @@ The main AI processing happens in app.js from lines 76 through 160, while all th
 <h2>Future Prospects</h2>
 Since this is a prototype, everything used to make this is free: free hosting, the free OpenAI API and the free tier of the Nanonets OCR Custom-trained model that only lets you process 100 pages before you need to start paying. Future scope for this project could include upgrading from ChatGPT to LLama2, which is an NLP model powerful enough to be well-suited for this task and will provide greater accuracy and better feedback. We can also increase the dataset size for even better OCR. A Major Future Prospect for this idea could be to tackle the checking of CBSE Class 10 Board Papers, which will greatly simplify the logistics of paper checking for CBSE, and also make checking significantly faster. 
 
-<h4>Upgrade to LLama2</h4>
-This is still in the works, as I try to integrate the API into the NodeJS application. According to testing, LLama is <b>a lot better</b> than ChatGPT and provides realistic marking and detailed answers. However, it cannot be relied on for correcting OCR text, for which I will still have to use ChatGPT.
+<h4>Upgrade to PaLM2</h4>
+PaLM2' "data-based" prompt has shown great potential for concise, clear and workable feedback with accurately strict scores (also, PaLM2 in MakerSuite is currently free). An API integration is possible in the future.
 
 <h2>Prompts Used</h2>
 <h4>Prompt used for OCR - </h4> 
